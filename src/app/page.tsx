@@ -120,12 +120,73 @@ export default function Home() {
                 href={partner.href}
                 target={partner.href.startsWith("http") ? "_blank" : undefined}
                 rel="noopener noreferrer"
-                className="font-display text-lg font-medium tracking-wide text-white/25 transition-colors duration-300 hover:text-white/70"
+                className="group flex flex-col items-center gap-3 transition-colors duration-300"
               >
-                {partner.name}
+                {/* Visual placeholder for logo */}
+                <div className="bg-white/5 border border-white/10 rounded-full w-14 h-14 flex items-center justify-center text-white/50 group-hover:text-chale-gold group-hover:border-chale-gold transition-all">
+                    ○
+                </div>
+                <span className="font-display text-sm font-medium tracking-wide text-white/30 group-hover:text-white/80">
+                   {partner.name}
+                </span>
               </a>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
+          BRAND BANNER
+      ───────────────────────────────────────────── */}
+      <section className="mt-10 overflow-hidden bg-chale-gold py-4 sm:py-6 relative z-10 w-full mb-20 text-black">
+         <div className="flex w-full whitespace-nowrap">
+            <div className="animate-marquee flex gap-12 font-display text-lg uppercase tracking-[0.2em]">
+                <span>Authentic. Vibrant. African.</span>
+                <span>•</span>
+                <span>Authentic. Vibrant. African.</span>
+                <span>•</span>
+                <span>Authentic. Vibrant. African.</span>
+                <span>•</span>
+                <span>Authentic. Vibrant. African.</span>
+                <span>•</span>
+                <span>Authentic. Vibrant. African.</span>
+                <span>•</span>
+            </div>
+         </div>
+      </section>
+
+      {/* ─────────────────────────────────────────────
+          BRAND MANIFESTO VISUALS
+      ───────────────────────────────────────────── */}
+      <section className="section-shell max-w-7xl mb-32 px-4 md:px-8">
+        <div className="grid md:grid-cols-2 gap-4 md:gap-8 min-h-[500px]">
+           {/* Left Image Box */}
+           <div className="relative group overflow-hidden rounded-2xl h-[400px] md:h-auto">
+               <Image 
+                 src="https://chalesocks.com/wp-content/uploads/2022/03/MG_2266-copy.jpg"
+                 alt="Chale Lifestyle"
+                 fill
+                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+               />
+               <div className="absolute inset-0 bg-black/40" />
+               <div className="absolute inset-0 flex items-center justify-center p-8 text-center text-white">
+                  <h3 className="font-display text-4xl font-normal leading-snug">Chalé means buddy or friend.</h3>
+               </div>
+           </div>
+
+           {/* Right Image Box */}
+           <div className="relative group overflow-hidden rounded-2xl h-[400px] md:h-auto">
+               <Image 
+                 src="https://chalesocks.com/wp-content/uploads/2023/03/IMG_8103.jpg"
+                 alt="Chale Expression"
+                 fill
+                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+               />
+               <div className="absolute inset-0 bg-black/40" />
+               <div className="absolute inset-0 flex items-center justify-center p-8 text-center text-white">
+                  <h3 className="font-display text-4xl font-normal leading-snug">Inspired by creative exploits.</h3>
+               </div>
+           </div>
         </div>
       </section>
 

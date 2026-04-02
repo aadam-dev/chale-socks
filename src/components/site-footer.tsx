@@ -28,6 +28,10 @@ export function SiteFooter() {
             <p className="text-sm font-light leading-relaxed text-primary/60">
               Premium socks designed in Ghana. Inspired by the World. Culture in every thread.
             </p>
+            <p className="inline-flex items-center gap-2 mt-4 text-[11px] font-medium tracking-widest text-[#cfaa60] uppercase">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#cfaa60]" />
+              Product of Ghana
+            </p>
           </div>
 
           {/* Shop Column */}
