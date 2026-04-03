@@ -30,7 +30,7 @@ export default async function CollectionsPage({
       <h1 className="font-headline text-3xl font-bold tracking-tight md:text-4xl">
         Collections
       </h1>
-      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-black/70">
+      <p className="mt-3 max-w-2xl text-sm leading-relaxed text-zinc-400">
         Editorial catalog: asymmetrical rhythm, studio-to-lifestyle reveals, and
         one-line cultural meaning on every pattern.
       </p>
@@ -82,8 +82,11 @@ function FilterChip({
     <Link
       href={href}
       className={cn(
-        "blueprint-border liquid-transition rounded-full px-4 py-2 text-xs font-medium",
-        active ? "bg-obsidian text-coconut" : "bg-white text-obsidian hover:bg-black/[0.04]"
+        "liquid-transition rounded-full border px-4 py-2 text-xs font-medium",
+        /* Do not rely on theme `text-obsidian`: links inherit body color and read as white on white pills. */
+        active
+          ? "border-white/15 bg-neutral-950 text-white shadow-sm"
+          : "border-white/20 bg-white text-neutral-950 hover:bg-zinc-100"
       )}
     >
       {children}

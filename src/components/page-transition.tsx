@@ -12,13 +12,15 @@ export function PageTransition({ children }: { children: ReactNode }) {
     <AnimatePresence mode="wait">
       <motion.main
         key={pathname}
-        initial={reduceMotion ? false : { opacity: 0, y: 12 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={reduceMotion ? undefined : { opacity: 0, y: -8 }}
+        /* initial y + opacity caused visible "ghost" layers on some GPUs during
+           hydration/first paint; opacity-only keeps SSR/client paint aligned. */
+        initial={reduceMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={reduceMotion ? undefined : { opacity: 0 }}
         transition={
           reduceMotion
             ? { duration: 0 }
-            : { duration: 0.42, ease: [0.16, 1, 0.3, 1] }
+            : { duration: 0.36, ease: [0.16, 1, 0.3, 1] }
         }
         className="relative z-10 flex-1 pb-20"
       >

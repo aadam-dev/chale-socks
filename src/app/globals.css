@@ -17,6 +17,8 @@
 
   --font-sans: var(--font-family-sans), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-family-display), ui-serif, Georgia, serif;
+  /* Alias used across components (matches display / headlines) */
+  --font-headline: var(--font-family-display), ui-serif, Georgia, serif;
   --font-mono: var(--font-family-mono), ui-monospace, monospace;
 }
 

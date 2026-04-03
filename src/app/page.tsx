@@ -4,23 +4,32 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { BentoGrid } from "@/components/bento-grid";
+import { GiftSection } from "@/components/gift-section";
 
 export default function Home() {
   return (
     <>
       {/* ─────────────────────────────────────────────
-          HERO  —  matches the reference design exactly
-          Dark charcoal bg, serif headline, glass "Shop Now",
-          kente socks image on right, social icons bottom-left.
+          HERO V2  —  Editorial split: type left, floating image card right
+          Matches approved premium_chale_hero_concept reference:
+          rounded image frame, ambient gold glow, glass CTA.
       ───────────────────────────────────────────── */}
       <section className="relative flex min-h-[calc(100vh-72px)] w-full items-stretch overflow-hidden bg-[#1c1f24]">
 
-        {/* Left column */}
+        {/* ── Ambient glow layers — warm gold bloom behind the image ── */}
+        <div className="pointer-events-none absolute inset-0 z-0">
+          {/* Wide outer bloom */}
+          <div className="absolute right-0 top-0 h-full w-[60%] bg-[radial-gradient(ellipse_70%_60%_at_72%_48%,rgba(207,170,96,0.11)_0%,transparent_65%)]" />
+          {/* Tighter inner highlight */}
+          <div className="absolute right-[4%] top-[10%] h-[80%] w-[50%] bg-[radial-gradient(ellipse_50%_55%_at_60%_45%,rgba(247,197,0,0.06)_0%,transparent_55%)]" />
+        </div>
+
+        {/* ── Left column: copy ── */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-          className="flex w-full flex-col justify-between px-8 py-14 md:w-[45%] md:px-16 lg:px-20"
+          className="relative z-10 flex w-full flex-col justify-between px-8 py-14 md:w-[45%] md:px-16 lg:px-20"
         >
           {/* Headline */}
           <div>
@@ -29,7 +38,7 @@ export default function Home() {
               <span className="block">Your Sole.</span>
             </h1>
 
-            {/* Shop Now button — matches the wide rectangular glass pill in the ref */}
+            {/* Glass pill CTA — matches reference exactly */}
             <div className="mt-10">
               <Link
                 href="/collections"
@@ -40,13 +49,12 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Bottom-left footer strip */}
+          {/* Bottom-left: copyright + social strip */}
           <div className="mt-auto flex flex-col gap-4 pt-16">
             <p className="text-[11px] font-light tracking-wide text-white/35">
               Chale Socks © 2026. Worldwide Shipping.
             </p>
             <div className="flex items-center gap-5">
-              {/* Instagram */}
               <a
                 href="https://www.instagram.com/chalesocks"
                 target="_blank"
@@ -58,7 +66,6 @@ export default function Home() {
                   <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
                 </svg>
               </a>
-              {/* Twitter / X */}
               <a
                 href="https://twitter.com/chalesocks"
                 target="_blank"
@@ -74,24 +81,26 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Right column — the hero image panel  */}
+        {/* ── Right column: floating image card ── */}
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.2, delay: 0.1 }}
-          className="relative hidden w-[55%] md:block"
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.1, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+          className="relative z-10 hidden w-[55%] items-center justify-center py-10 pr-10 md:flex lg:pr-16"
         >
-          {/* The image fills this column edge to edge, top to bottom */}
-          <Image
-            src="/hero-sock-crop.png"
-            alt="Kente-patterned Chalé Socks on an Ashanti carved stool"
-            fill
-            priority
-            sizes="55vw"
-            className="object-cover object-center"
-          />
-          {/* Left-side feather so it blends into the dark bg */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#1c1f24] to-transparent" />
+          {/* Floating card frame — the key design element from the reference */}
+          <div className="relative h-full max-h-[76vh] w-full max-w-[500px] overflow-hidden rounded-[28px] border border-white/[0.09] shadow-[0_40px_100px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_rgba(255,255,255,0.06)]">
+            {/* Subtle inner vignette to make the image feel recessed */}
+            <div className="pointer-events-none absolute inset-0 z-10 rounded-[28px] shadow-[inset_0_0_40px_rgba(0,0,0,0.25)]" />
+            <Image
+              src="/assets/hero-kente-socks.jpg"
+              alt="Kente-patterned Chalé Socks on an Ashanti carved stool"
+              fill
+              priority
+              sizes="(max-width: 768px) 0px, 500px"
+              className="object-cover object-center"
+            />
+          </div>
         </motion.div>
 
       </section>
@@ -102,6 +111,8 @@ export default function Home() {
       <div className="mt-24 md:mt-32">
         <BentoGrid />
       </div>
+
+      <GiftSection />
 
       {/* ─────────────────────────────────────────────
           BRAND PARTNERS

@@ -24,11 +24,12 @@ type CurrencyContextType = {
 const CurrencyContext = createContext<CurrencyContextType | null>(null);
 
 export function CurrencyProvider({ children }: { children: ReactNode }) {
-  // Always start with USD to avoid SSR/client mismatch
+  // Initialize currency to a default value for SSR, then detect on client.
   const [currency, setCurrencyState] = useState<CurrencyCode>("USD");
 
-  // After client mount, detect the user's actual preferred currency
+  // Using useEffect to set client-side specific state after mount to avoid hydration mismatches.
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrencyState(detectInitialCurrency());
   }, []);
 

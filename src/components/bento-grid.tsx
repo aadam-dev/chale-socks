@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ProductCard } from "@/components/product-card";
 import { products } from "@/lib/data";
-import { buttonVariants } from "@/components/ui/button";
 
 export function BentoGrid() {
   return (
