@@ -74,16 +74,16 @@ export function SiteHeader() {
       <div className="section-shell w-full max-w-5xl px-4">
         <div
           className={cn(
-            "flex items-center justify-between rounded-xl border border-white/10 px-6 py-3.5 backdrop-blur-xl transition-all duration-500",
+            "flex items-center justify-between rounded-xl border border-white/10 px-6 py-3.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-[12px] transition-all duration-500",
             scrolled
-              ? "bg-[#0f1114]/90 shadow-[0_8px_30px_rgba(0,0,0,0.5)]"
-              : "bg-white/5 shadow-[0_4px_20px_rgba(0,0,0,0.3)]"
+              ? "bg-[#0f1114]/88 shadow-[0_8px_32px_rgba(0,0,0,0.55),inset_0_1px_0_rgba(255,255,255,0.06)]"
+              : "bg-white/[0.06] shadow-[0_4px_24px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.08)]"
           )}
         >
-          {/* Logo */}
+          {/* Logo — serif, editorial tracking */}
           <Link
             href="/"
-            className="font-headline text-xl font-medium tracking-wider text-white shrink-0"
+            className="font-display text-lg font-medium tracking-[0.12em] text-white shrink-0 md:text-xl"
           >
             CHALÉ SOCKS
           </Link>
@@ -97,7 +97,7 @@ export function SiteHeader() {
                 onClick={() => toggle("styles")}
                 aria-expanded={open === "styles"}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-lg px-4 py-2 text-[11px] font-medium uppercase tracking-widest transition-colors",
+                  "flex items-center gap-1.5 rounded-lg px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.1em] transition-colors",
                   open === "styles" ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"
                 )}
               >
@@ -129,7 +129,7 @@ export function SiteHeader() {
                 onClick={() => toggle("gifts")}
                 aria-expanded={open === "gifts"}
                 className={cn(
-                  "flex items-center gap-1.5 rounded-lg px-4 py-2 text-[11px] font-medium uppercase tracking-widest transition-colors",
+                  "flex items-center gap-1.5 rounded-lg px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.1em] transition-colors",
                   open === "gifts" ? "text-white bg-white/10" : "text-white/70 hover:text-white hover:bg-white/5"
                 )}
               >
@@ -157,14 +157,14 @@ export function SiteHeader() {
 
             <Link
               href="/collections?category=Gye+Nyame"
-              className="rounded-lg px-4 py-2 text-[11px] font-medium uppercase tracking-widest text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+              className="rounded-lg px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-white/70 transition-colors hover:bg-white/5 hover:text-white"
             >
               Gye Nyame
             </Link>
 
             <Link
               href="/stories"
-              className="rounded-lg px-4 py-2 text-[11px] font-medium uppercase tracking-widest text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+              className="rounded-lg px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-white/70 transition-colors hover:bg-white/5 hover:text-white"
             >
               Blog
             </Link>
@@ -181,7 +181,7 @@ export function SiteHeader() {
               <button
                 onClick={() => toggle("currency")}
                 aria-expanded={open === "currency"}
-                className="flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 text-[11px] font-medium tracking-widest text-white/70 transition-all hover:border-white/20 hover:text-white"
+                className="flex items-center gap-1.5 rounded-lg border border-white/10 px-3 py-1.5 font-sans text-[11px] font-medium tracking-[0.1em] text-white/70 transition-all hover:border-white/20 hover:text-white"
               >
                 <span>{activeCurrency.flag}</span>
                 <span>{activeCurrency.code}</span>
@@ -214,7 +214,7 @@ export function SiteHeader() {
             {/* Cart */}
             <button
               aria-label="Cart"
-              className="relative flex items-center gap-2 rounded-lg px-3 py-2 text-[11px] font-medium uppercase tracking-widest text-white/70 transition-colors hover:bg-white/5 hover:text-white"
+              className="relative flex items-center gap-2 rounded-lg px-3 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.1em] text-white/70 transition-colors hover:bg-white/5 hover:text-white"
             >
               <span className="hidden md:inline">Cart</span>
               <div className="relative">

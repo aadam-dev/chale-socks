@@ -10,18 +10,17 @@ export default function Home() {
   return (
     <>
       {/* ─────────────────────────────────────────────
-          HERO V2  —  Editorial split: type left, floating image card right
-          Matches approved premium_chale_hero_concept reference:
-          rounded image frame, ambient gold glow, glass CTA.
+          HERO V2  —  Editorial split + premium glow (typography ref: Playfair + Outfit)
       ───────────────────────────────────────────── */}
-      <section className="relative flex min-h-[calc(100vh-72px)] w-full items-stretch overflow-hidden bg-[#1c1f24]">
+      <section className="relative flex min-h-[calc(100vh-72px)] w-full items-stretch overflow-hidden bg-[#0d0d0d]">
 
-        {/* ── Ambient glow layers — warm gold bloom behind the image ── */}
+        {/* ── Ambient layers: soft light on copy, gold + image warmth on right ── */}
         <div className="pointer-events-none absolute inset-0 z-0">
-          {/* Wide outer bloom */}
-          <div className="absolute right-0 top-0 h-full w-[60%] bg-[radial-gradient(ellipse_70%_60%_at_72%_48%,rgba(207,170,96,0.11)_0%,transparent_65%)]" />
-          {/* Tighter inner highlight */}
-          <div className="absolute right-[4%] top-[10%] h-[80%] w-[50%] bg-[radial-gradient(ellipse_50%_55%_at_60%_45%,rgba(247,197,0,0.06)_0%,transparent_55%)]" />
+          {/* Left: subtle neutral lift so charcoal isn’t flat */}
+          <div className="absolute left-0 top-0 h-full w-full max-md:w-full md:w-[52%] bg-[radial-gradient(ellipse_85%_75%_at_22%_42%,rgba(255,255,255,0.045)_0%,transparent_58%)]" />
+          {/* Right: warm brand bloom (socks / kente) */}
+          <div className="absolute right-0 top-0 h-full w-[60%] bg-[radial-gradient(ellipse_70%_60%_at_72%_48%,rgba(207,170,96,0.1)_0%,transparent_65%)]" />
+          <div className="absolute right-[4%] top-[10%] h-[80%] w-[50%] bg-[radial-gradient(ellipse_50%_55%_at_60%_45%,rgba(247,197,0,0.055)_0%,transparent_55%)]" />
         </div>
 
         {/* ── Left column: copy ── */}
@@ -33,25 +32,25 @@ export default function Home() {
         >
           {/* Headline */}
           <div>
-            <h1 className="font-display text-[clamp(3.2rem,7.5vw,5.8rem)] font-normal leading-[1.04] tracking-tight text-white">
+            <h1 className="font-display text-[clamp(3.2rem,7.5vw,5.8rem)] font-medium leading-[1.04] tracking-tight text-white">
               <span className="block">Elevate</span>
               <span className="block">Your Sole.</span>
             </h1>
 
-            {/* Glass pill CTA — matches reference exactly */}
+            {/* CTA: serif + cool outer glow (mockup), single primary action */}
             <div className="mt-10">
               <Link
                 href="/collections"
-                className="flex h-[44px] w-[220px] items-center justify-center rounded-md border border-white/20 bg-white/5 text-[14px] font-light tracking-widest text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-sm transition-all duration-300 hover:border-white/30 hover:bg-white/10"
+                className="font-display inline-flex h-11 min-w-[200px] items-center justify-center rounded-lg border border-white/25 bg-black/25 px-8 text-[15px] font-medium capitalize tracking-normal text-white shadow-[0_0_22px_rgba(255,255,255,0.12),0_0_48px_rgba(160,216,239,0.14),inset_0_1px_0_rgba(255,255,255,0.1)] backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:border-white/35 hover:shadow-[0_0_30px_rgba(255,255,255,0.18),0_0_64px_rgba(160,216,239,0.2)] active:scale-[0.99]"
               >
-                Shop Now
+                Shop now
               </Link>
             </div>
           </div>
 
           {/* Bottom-left: copyright + social strip */}
           <div className="mt-auto flex flex-col gap-4 pt-16">
-            <p className="text-[11px] font-light tracking-wide text-white/35">
+            <p className="font-sans text-[11px] font-normal tracking-[0.06em] text-white/40">
               Chale Socks © 2026. Worldwide Shipping.
             </p>
             <div className="flex items-center gap-5">
@@ -89,9 +88,9 @@ export default function Home() {
           className="relative z-10 hidden w-[55%] items-center justify-center py-10 pr-10 md:flex lg:pr-16"
         >
           {/* Floating card frame — the key design element from the reference */}
-          <div className="relative h-full max-h-[76vh] w-full max-w-[500px] overflow-hidden rounded-[28px] border border-white/[0.09] shadow-[0_40px_100px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,255,255,0.04),inset_0_1px_0_rgba(255,255,255,0.06)]">
-            {/* Subtle inner vignette to make the image feel recessed */}
-            <div className="pointer-events-none absolute inset-0 z-10 rounded-[28px] shadow-[inset_0_0_40px_rgba(0,0,0,0.25)]" />
+          <div className="relative h-full max-h-[76vh] w-full max-w-[500px] overflow-hidden rounded-[20px] border border-white/[0.09] shadow-[0_28px_80px_rgba(0,0,0,0.55),0_0_0_1px_rgba(255,255,255,0.05),inset_0_1px_0_rgba(255,255,255,0.06)]">
+            {/* Subtle inner vignette */}
+            <div className="pointer-events-none absolute inset-0 z-10 rounded-[20px] shadow-[inset_0_0_40px_rgba(0,0,0,0.25)]" />
             <Image
               src="/assets/hero-kente-socks.jpg"
               alt="Kente-patterned Chalé Socks on an Ashanti carved stool"
